@@ -24,4 +24,10 @@ public class DapperDepartmentRepository : IDepartmentRepository
         _connection.Execute("INSERT INTO DEPARTMENTS (Name) VALUES (@departmentName);",
             new { departmentName = newDepartmentName });
     }
+    
+    public void DeleteDepartment( int deptID )
+    {
+        _connection.Execute("DELETE from departments WHERE DepartmentID = @deptID;",
+            new { deptID = deptID });
+    }
 }
